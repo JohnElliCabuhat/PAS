@@ -22,20 +22,20 @@ public class PASApp{
 	 */
 	public static void main(String[] args) {
 		try {
+			databaseCreation createDb = new databaseCreation();
+			createDb.createDatabase();
+			createDb.createTables();
 			//establishing database connection
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/capstone_project_db", "root", "Readlord123$");
 			Scanner input = new Scanner(System.in);
 			CustomerAccount acc = new CustomerAccount();
 			Policy policy = new Policy();
-			databaseCreation createDb = new databaseCreation();
 			boolean checker = false;
 			
 			int choice = 0;
 			
 			do {
-				createDb.createDatabase();
-				createDb.createTables();
 				//menu display
 				System.out.println("\nChoose an option:");
 				System.out.println("[1] Create a new Customer Account");
@@ -357,7 +357,7 @@ public class PASApp{
 			
 		}
 		catch(Exception e) {
-			System.out.println("Error.Please Try Again.");
+			System.out.println(e);
 		}
 		
 		

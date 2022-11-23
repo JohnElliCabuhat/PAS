@@ -24,7 +24,7 @@ public class databaseCreation {
 	public void createDatabase() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/capstone_project_db", "root", "Readlord123$");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "Readlord123$");
 			Statement st = con.createStatement();
 			String sql = "CREATE database if not exists capstone_project_db";
 			st.executeUpdate(sql);
